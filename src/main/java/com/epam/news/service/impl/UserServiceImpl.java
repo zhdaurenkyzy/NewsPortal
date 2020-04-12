@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
-public class UserServicesImpl extends AbstractService<User, UserRepository> implements UserService {
+public class UserServiceImpl extends AbstractService<User, UserRepository> implements UserService {
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
@@ -59,7 +59,7 @@ public class UserServicesImpl extends AbstractService<User, UserRepository> impl
     @Transactional
     public User getUserContext() {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
-        return (User)userRepository.findByLogin(login).get();
+        return (User) userRepository.findByLogin(login).get();
     }
 
 }

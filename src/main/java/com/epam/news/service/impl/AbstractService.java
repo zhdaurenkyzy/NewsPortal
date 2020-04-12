@@ -26,7 +26,6 @@ public abstract class AbstractService<E extends AbstractModel, R extends CRUDRep
         this.locale = locale;
     }
 
-
     @Override
     public abstract void save(E e);
 

@@ -8,17 +8,23 @@ import com.epam.news.service.CommentService;
 import com.epam.news.service.NewsService;
 import com.epam.news.service.UserService;
 import com.epam.news.util.MessageLocaleService;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {HibernateConfig.class, WebConfig.class, SecurityConfig.class, AppInitializer.class})
 @WebAppConfiguration
 public class NewsControllerTest {
+    private MockMvc mockMvc;
     @Mock
     private UserService userService;
     @Mock
@@ -28,6 +34,10 @@ public class NewsControllerTest {
     @Mock
     private MessageLocaleService locale;
 
-    @InjectMocks
-    private NewsController newsController;
+    @Before
+    public void setUp() throws Exception {
+        this.mockMvc = MockMvcBuilders.standaloneSetup(NewsController.class).build();
+    }
+
+    
 }
