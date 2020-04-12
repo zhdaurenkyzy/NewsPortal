@@ -29,7 +29,6 @@ public class GlobalDefaultExceptionHandler {
         ModelAndView modelAndView = new ModelAndView("errorPage");
         modelAndView.addObject(ERROR_TITLE_ATTRIBUTE, title);
         modelAndView.addObject(ERROR_MESSAGE_ATTRIBUTE, e.getMessage());
-        e.printStackTrace();
         logger.info(locale.getMessage("error.infoException") + e.getMessage());
         return modelAndView;
     }

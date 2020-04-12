@@ -44,7 +44,7 @@ public class NewsController extends AbstractController<News, NewsService> {
         this.locale = locale;
     }
 
-    @RequestMapping("/errorPage")
+    @GetMapping("/error")
     public String getErrorPage() {
         return "errorPage";
     }
