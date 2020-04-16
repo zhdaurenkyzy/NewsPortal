@@ -31,7 +31,7 @@ public class AuthController {
         this.locale = locale;
     }
 
-    @GetMapping("/signInPage")
+    @GetMapping("/getSignInPage")
     public ModelAndView getSignInPage(@ModelAttribute("user") User user,
                                       @RequestParam(name = "error", required = false) Boolean error) {
         ModelAndView modelAndView = new ModelAndView(SIGN_IN_PAGE);
@@ -41,7 +41,7 @@ public class AuthController {
         return modelAndView;
     }
 
-    @GetMapping("/signUpPage")
+    @GetMapping("/getSignUpPage")
     public ModelAndView getSignUpPage(@ModelAttribute("user") User user) {
         return new ModelAndView(SIGN_UP_PAGE);
     }

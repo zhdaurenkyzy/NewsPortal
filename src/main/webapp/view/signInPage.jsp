@@ -43,7 +43,7 @@
                 </sec:authorize>
 
                 <sec:authorize access="!isAuthenticated()">
-                    <li><a href="/signInPage"><spring:message code="label.auth"/></a></li>
+                    <li><a href="/getSignInPage"><spring:message code="label.auth"/></a></li>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li>
@@ -88,7 +88,7 @@
 
 
                     <li><input type="submit" value=<spring:message code="label.signIn"/>></li>
-                    <li><a href="/signUpPage" class="button big next"><spring:message code="label.signUp"/></a></li>
+                    <li><a href="/getSignUpPage" class="button big next"><spring:message code="label.signUp"/></a></li>
 
 
                 </ul>

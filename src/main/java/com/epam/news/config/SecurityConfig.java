@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/signInPage", "/signIn", "/signUp").anonymous()
+                .antMatchers("/getSignInPage", "/signIn", "/signUp").anonymous()
                 .antMatchers("/addPage",
                         "/edit/*",
                         "/delete/*",
@@ -47,9 +47,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/addComment").authenticated()
                 .and().csrf().disable()
                 .formLogin()
-                .loginPage("/signInPage")
+                .loginPage("/getSignInPage")
                 .loginProcessingUrl("/signIn")
-                .failureUrl("/signInPage?error=true")
+                .failureUrl("/getSignInPage?error=true")
                 .usernameParameter("login")
                 .passwordParameter("password")
                 .and()

@@ -44,7 +44,7 @@
                 </sec:authorize>
 
                 <sec:authorize access="!isAuthenticated()">
-                    <li><a href="/signInPage"><spring:message code="label.auth"/></a></li>
+                    <li><a href="/getSignInPage"><spring:message code="label.auth"/></a></li>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li>

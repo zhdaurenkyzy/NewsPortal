@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import static com.epam.news.util.Constant.*;
 
@@ -86,11 +87,12 @@ public class NewsController extends AbstractController<News, NewsService> {
 
     @PostMapping("/edit")
     public Object editNews(@ModelAttribute("news") @Valid News news, BindingResult result) {
-        ModelAndView modelAndView = new ModelAndView("redirect:/");
+        ModelAndView modelAndView = new ModelAndView();
         if (result.hasErrors()) {
             return "/newsPage";
         }
         newsService.update(news);
+        modelAndView.setViewName("redirect:/");
         return modelAndView;
     }
 
