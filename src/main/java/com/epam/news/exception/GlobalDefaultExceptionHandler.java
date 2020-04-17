@@ -25,21 +25,17 @@ public class GlobalDefaultExceptionHandler {
         this.logger = logger;
     }
 
-    private ModelAndView handlerGlobal(Exception e, String title) {
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handlerGlobal(Exception e) {
         ModelAndView modelAndView = new ModelAndView("errorPage");
-        modelAndView.addObject(ERROR_TITLE_ATTRIBUTE, title);
         modelAndView.addObject(ERROR_MESSAGE_ATTRIBUTE, e.getMessage());
         logger.info(locale.getMessage("error.infoException") + e.getMessage());
         return modelAndView;
     }
 
-    @ExceptionHandler(Exception.class)
-    public ModelAndView handlerException(Exception e) {
-        return handlerGlobal(e, locale.getMessage("error.contactAdmin"));
+    @ExceptionHandler(IncorrectValueException.class)
+    public ModelAndView handlerCustom(IncorrectValueException e){
+       return handlerGlobal(e);
     }
 
-    @ExceptionHandler(CustomGeneralException.class)
-    public ModelAndView handlerCustomGeneralException(CustomGeneralException e) {
-        return handlerGlobal(e, locale.getMessage("error.infoException"));
-    }
 }

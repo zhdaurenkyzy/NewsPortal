@@ -67,7 +67,6 @@
         <article class="post">
 
             <div class="title">
-                <h1>${errorTitle}</h1>
                 <h2>${errorMessage}</h2>
                 <form:form>
                 <form:errors  style="color:#ff0000"/>

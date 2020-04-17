@@ -14,10 +14,7 @@ import com.epam.news.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -43,6 +40,7 @@ public class NewsControllerTest {
     private News news;
     private Comment comment;
     private User user;
+    private User userIsNotAuthor;
     private List<News> newsList = new ArrayList<>();
     private List<Comment> commentList = new ArrayList<>();
     @Mock
@@ -133,12 +131,12 @@ public class NewsControllerTest {
         mockMvc.perform(get("/edit/{id}", id))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(model().attribute(NEWS_ATTRIBUTE, newsServiceMock.findById(id)))
+                .andExpect(model().attribute(NEWS_ATTRIBUTE, news))
                 .andExpect(view().name(NEWS_PAGE));
     }
 
     @Test
-    public void getNewsEditingPageShouldReturnIncorrectValueException() {
+    public void getNewsEditingPageShouldReturnIncorrectValueException()  {
 
     }
 

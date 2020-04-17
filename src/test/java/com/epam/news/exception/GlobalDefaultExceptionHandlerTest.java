@@ -2,6 +2,7 @@ package com.epam.news.exception;
 
 import org.junit.Test;
 
+
 public class GlobalDefaultExceptionHandlerTest {
 
     @Test
