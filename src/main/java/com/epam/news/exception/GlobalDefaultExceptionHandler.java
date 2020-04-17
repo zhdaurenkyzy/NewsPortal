@@ -33,8 +33,8 @@ public class GlobalDefaultExceptionHandler {
         return modelAndView;
     }
 
-    @ExceptionHandler(IncorrectValueException.class)
-    public ModelAndView handlerCustom(IncorrectValueException e){
+    @ExceptionHandler(CustomGeneralException.class)
+    public ModelAndView handlerCustom(CustomGeneralException e){
        return handlerGlobal(e);
     }
 
